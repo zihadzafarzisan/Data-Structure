@@ -3,6 +3,7 @@ class LabTask1{
 
     //Complete this method so that it gives the Expected Output
     //NO NEED TO SUBMIT LAB TASKS
+    //Mycode from here to 
     public static void walkZigzag( Integer[][] matrix ){
         for(int colm = 0; colm < matrix[0].length; colm++){
             if(colm % 2 == 0){
@@ -23,6 +24,7 @@ class LabTask1{
             }
         }
     }
+    //here!
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args){
         Integer[][] floor1 = {
