@@ -10,7 +10,19 @@ class LabTask2{
 
         //TO DO
         //DELETE the following return statement when you're ready to return the 2D array
-        return null;
+        int[] sum = new int[matrix[0].length];
+        for(int colm = 0; colm < matrix[0].length; colm++){
+            int sum2 = 0;
+            for(int row = 0; row < matrix.length; row++){
+                sum2 += matrix[row][colm];
+            }
+            sum[colm] = sum2;
+        }
+        Integer[] result = new Integer[matrix[0].length -1];
+        for(int i = 0; i < sum.length - 1; i++){
+            result[i] = sum[i + 1] - sum[i];
+        }
+        return result;
 
     }
 
