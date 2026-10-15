@@ -10,6 +10,7 @@ class LabTask2{
 
         //TO DO
         //DELETE the following return statement when you're ready to return the 2D array
+        //My code from here to
         int[] sum = new int[matrix[0].length];
         for(int colm = 0; colm < matrix[0].length; colm++){
             int sum2 = 0;
@@ -25,7 +26,7 @@ class LabTask2{
         return result;
 
     }
-
+    //here
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args){
         Integer[][] matrix = {
