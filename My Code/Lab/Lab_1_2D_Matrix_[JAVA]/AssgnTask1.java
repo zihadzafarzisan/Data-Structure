@@ -11,8 +11,26 @@ class AssgnTask1{
         //Only the integer row number is to be returned
 
         //TO DO
-        return null;
+        //My code from here to
+        Integer week = 0;
+        for(int row = 0; row < matrix.length/3; row++){
+            for(int colm = 0; colm < matrix[0].length; colm++){
+                String temp = matrix[row][colm];
+                matrix[row][colm] = matrix[matrix.length - 1 - row][colm];
+                matrix[matrix.length - 1 - row][colm] = temp;
+                week++;
+                System.out.print(matrix[row][colm]);
+
+            }
+            System.out.println();
+            while(week == matrix.length - 1){
+                break;
+            }
+        }
+        
+        return week;
     }
+    //here
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args){
