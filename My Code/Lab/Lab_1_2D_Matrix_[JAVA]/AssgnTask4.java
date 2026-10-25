@@ -9,6 +9,40 @@ class AssgnTask4{
 
         //Print the message inside of this method
         //TO DO
+         int n = board.length;
+
+    for (int layer = 0; layer < n / 2; layer++) {
+        int top = layer, bottom = n - 1 - layer;
+        int left = layer, right = n - 1 - layer;
+        int times = n / 2 - layer;   // innermost = 1, next = 2, ...
+
+        for (int t = 0; t < times; t++) {
+            Character tmp = board[top][right];
+
+            // top row moves right
+            for (int j = right; j > left; j--)
+                board[top][j] = board[top][j - 1];
+
+            // left column moves up
+            for (int i = top; i < bottom; i++)
+                board[i][left] = board[i + 1][left];
+
+            // bottom row moves left
+            for (int j = left; j < right; j++)
+                board[bottom][j] = board[bottom][j + 1];
+
+            // right column moves down
+            for (int i = bottom; i > top + 1; i--)
+                board[i][right] = board[i - 1][right];
+            board[top + 1][right] = tmp;
+        }
+    }
+
+    // print the recovered message
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            System.out.print(board[i][j]);
+    System.out.println();
 
     }
 

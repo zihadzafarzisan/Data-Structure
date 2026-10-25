@@ -10,7 +10,20 @@ class AssgnTask2{
         //TO DO
 
         //remove the line below and return the newly created Compressed 2D matrix
-        return null;
+    int m = matrix.length;
+    int n = matrix[0].length;
+
+    Integer[][] result = new Integer[m / 2][n / 2];
+
+    for (int r = 0; r < m / 2; r++) {
+        for (int c = 0; c < n / 2; c++) {
+            int i = 2 * r;
+            int j = 2 * c;
+            result[r][c] = matrix[i][j] + matrix[i][j + 1]
+                         + matrix[i + 1][j] + matrix[i + 1][j + 1];
+        }
+    }
+        return result;
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE

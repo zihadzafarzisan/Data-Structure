@@ -9,7 +9,28 @@ class AssgnTask3{
         //just print the result inside the function
         
         //TO DO
+        int m = arena.length;
+    int n = arena[0].length;
+    int points = 0;
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            // a player is a positive multiple of 50
+            if (arena[i][j] > 0 && arena[i][j] % 50 == 0) {
+                if (i - 1 >= 0 && arena[i - 1][j] == 2) points += 2;  // up
+                if (i + 1 < m  && arena[i + 1][j] == 2) points += 2;  // down
+                if (j - 1 >= 0 && arena[i][j - 1] == 2) points += 2;  // left
+                if (j + 1 < n  && arena[i][j + 1] == 2) points += 2;  // right
+            }
+        }
     }
+
+    if (points >= 10) {
+        System.out.println("Points Gained: " + points + ". Your team has survived the game.");
+    } else {
+        System.out.println("Points Gained: " + points + ". Your team is out.");
+    }
+}
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
     public static void main(String[] args){

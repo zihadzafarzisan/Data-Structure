@@ -12,23 +12,45 @@ class AssgnTask1{
 
         //TO DO
         //My code from here to
-        Integer week = 0;
-        for(int row = 0; row < matrix.length/3; row++){
-            for(int colm = 0; colm < matrix[0].length; colm++){
-                String temp = matrix[row][colm];
-                matrix[row][colm] = matrix[matrix.length - 1 - row][colm];
-                matrix[matrix.length - 1 - row][colm] = temp;
-                week++;
-                System.out.print(matrix[row][colm]);
-
-            }
-            System.out.println();
-            while(week == matrix.length - 1){
-                break;
-            }
+    int m = matrix.length;      
+    int n = matrix[0].length;   
+    int k = (examWeek - 1) % m; 
+    for (int pass = 0; pass < 3; pass++) {
+        int lo, hi;
+        if (pass == 0){
+            lo = 0;
+            hi = m - 1;
         }
-        
-        return week;
+        else if (pass == 1) {
+            lo = 0;
+            hi = k - 1;
+        }
+        else{
+            lo = k; 
+            hi = m - 1;
+        }
+
+        while (lo < hi) {
+            for (int j = 0; j < n; j++) {
+                String temp = matrix[lo][j];
+                matrix[lo][j] = matrix[hi][j];
+                matrix[hi][j] = temp;
+            }
+            lo++;
+            hi--;
+        }
+    }
+    int rowOfAA = -1;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            System.out.print("| " + matrix[i][j]);
+            if (matrix[i][j].length() == 1) System.out.print(" ");
+            System.out.print(" ");
+            if (matrix[i][j].equals("AA")) rowOfAA = i + 1;
+        }
+        System.out.println("| ");
+    }
+    return rowOfAA;
     }
     //here
 
