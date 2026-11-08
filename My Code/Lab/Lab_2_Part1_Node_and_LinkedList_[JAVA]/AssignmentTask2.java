@@ -6,8 +6,23 @@ public class AssignmentTask2{
     public static Node organizeBooks(Node head, Integer[] popularity) {
         
         //TO DO
-
-        return null; // Remove this when you're ready to return the new head
+        int index = popularity.length;
+        if(head == null || head.next == null) return head;
+        for(int i = 0; i < index - 1; i++){
+            Node temp = head;
+            for(int j = 0; j < index -i -1; j++){
+                if(popularity[j + 1] > popularity[j]){
+                    Integer pop = popularity[j];
+                    popularity[j] = popularity[j+1];
+                    popularity[j + 1] = pop;
+                    String bookName =(String) temp.elem;
+                    temp.elem = temp.next.elem;
+                    temp.next.elem = bookName;
+                }
+                temp = temp.next;
+            }
+        }
+        return head; // Remove this when you're ready to return the new head
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
